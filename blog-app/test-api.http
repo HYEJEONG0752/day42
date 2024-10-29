@@ -45,3 +45,26 @@ Authorization: Bearer {{token}}
 ### 게시물 삭제
 DELETE http://localhost:3000/posts/{postId}
 Authorization: Bearer {{token}}
+
+### 댓글 작성
+POST http://localhost:3000/comments/{postId}
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "content": "This is a comment on the post."
+}
+
+### 댓글 수정
+PUT http://localhost:3000/comments/{commentId}
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "content": "Updated comment content."
+}
+
+### 댓글 삭제
+DELETE http://localhost:3000/comments/{commentId}
+Authorization: Bearer {{token}}
+
