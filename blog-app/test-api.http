@@ -1,0 +1,47 @@
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3MjEwYTNkNzU0MjQyMmRlZDBmYWY2MyIsInJvbGUiOiJVc2VyIiwiaWF0IjoxNzMwMjE4NTY3LCJleHAiOjE3MzAyMjIxNjd9.YBc-bhF73h29H2WaAYP_KiRUfTBBxKlnsr5odvY1nA0
+
+
+### 회원가입
+POST http://localhost:3000/auth/register
+Content-Type: application/json
+
+{
+    "username": "testuser",
+    "password": "password123"
+}
+
+### 로그인
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{
+    "username": "testuser",
+    "password": "password123"
+}
+
+### 게시물 생성
+POST http://localhost:3000/posts
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "title": "My First Post",
+    "content": "This is the content of my first post."
+}
+
+### 게시물 목록 조회
+GET http://localhost:3000/posts
+
+### 게시물 수정
+PUT http://localhost:3000/posts/{postId}
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "title": "Updated Title",
+    "content": "Updated content of the post."
+}
+
+### 게시물 삭제
+DELETE http://localhost:3000/posts/{postId}
+Authorization: Bearer {{token}}
